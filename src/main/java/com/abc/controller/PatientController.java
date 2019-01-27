@@ -37,7 +37,7 @@ public class PatientController {
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     }
     )
-	@GetMapping(value="/patients",produces= {"application/xml"})
+	@GetMapping(value="/patients",produces= {"application/json"})
 	public List<Patient> getAllPatient(){
 		return patientService.getAllPatient();
 		
@@ -53,7 +53,7 @@ public class PatientController {
 		patientService.updatePatient(patient);
 	}
 	@ApiOperation(value = "Get a specific patient by id")
-	@GetMapping(value="/patient/{id}",produces= {"application/xml"})
+	@GetMapping(value="/patient/{id}",produces= {"application/json"})
 	public Optional<Patient> getPatient(@PathVariable("id") int id){
 		return patientService.getPatient(id);
 		
